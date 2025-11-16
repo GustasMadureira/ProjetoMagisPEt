@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat - MagisPet</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/icone magis prata.png" type="imagem-icone" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container-header">
+      <div class="logo">
+        <h1>
+          <img src="assets/img/magispet prata 3.png" alt="MagisPet" class="logo-img" />
+        </h1>
+      </div>
+      <nav class="nav-menu">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="pag-sobre.html" class="nav-link">Sobre</a>
+        <a href="perfil-animal.html" class="nav-link">Adotar</a>
+        <a href="anuncios.html" class="nav-link">Parcerias</a>
+        <a href="events.html" class="nav-link">Eventos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-login" onclick="location.href='login.html'">LOGIN</button>
+        <button class="btn-registrar">REGISTRAR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="chat-page-container">
+    <div class="chat-container">
+      <div class="chat-header">
+        <img src="assets/img/cachorro.jpg" alt="Animal" class="chat-avatar" />
+        <div class="chat-header-info">
+          <h2><strong>Rex</strong></h2>
+        </div>
+      </div>
+
+      <div class="message-list" id="message-list">
+      </div>
+
+      <form class="message-form" id="message-form">
+        <input type="text" id="message-input" placeholder="Digite sua mensagem..." autocomplete="off" />
+        <button type="submit" id="send-button">
+          Enviar <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container-footer">
+      <div class="footer-col">
+        <h3>🐾 MagisPet</h3>
+        <p>Trabalho Interdisciplinar criação web</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Adotar</a></li>
+          <li><a href="#">Cadastrar Animal</a></li>
+          <li><a href="#">Eventos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>📧 contato@magispet.com</li>
+          <li>📍 Belo Horizonte, MG</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/chat.js"></script>
+
+</body>
+
+</html>
