@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-const url = "https://e638a33f-632f-4094-9417-d318625fdd11-00-zxrkllekyax9.kirk.replit.dev/eventos";
+const url = "https://cc20c04c-918d-4941-adea-327d532368d2-00-3p832i6nen4dl.riker.replit.dev/eventos";
 
   fetch(url)
     .then(response => response.json())
