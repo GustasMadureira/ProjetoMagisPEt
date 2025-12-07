@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MagisPet</title>
+    <title>Eventos - MagisPet</title>
     <link
       rel="icon"
       href="assets/img/icone_magis_vermelho.png"
@@ -33,7 +33,9 @@
           <a href="events.html" class="nav-link active">Eventos</a>
         </nav>
         <div class="header-actions">
-          <button class="btn-login">LOGIN</button>
+          <button class="btn-login" onclick="location.href='login.html'">
+            LOGIN
+          </button>
           <button class="btn-registrar">REGISTRAR</button>
         </div>
       </div>
@@ -41,10 +43,8 @@
 
     <section class="eventos">
       <h2>Próximos Eventos</h2>
-      <div class="grid-eventos" id="listaEventos"></div>
-
-      <div class="ver-mais-container">
-        <button class="btn-ver-mais">Ver mais eventos</button>
+      <div class="grid-eventos" id="listaEventos">
+        <p style="text-align: center; padding: 40px">Carregando eventos...</p>
       </div>
     </section>
 
@@ -59,10 +59,10 @@
         <div class="footer-col">
           <h4>Páginas</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Adotar</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="anuncios.html">Adotar</a></li>
             <li><a href="#">Cadastrar Animal</a></li>
-            <li><a href="#">Eventos</a></li>
+            <li><a href="events.html">Eventos</a></li>
           </ul>
         </div>
 
@@ -76,12 +76,11 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2024 MagisPet. Todos os direitos reservados.</p>
+        <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
       </div>
     </footer>
 
-    <script src="events.js"></script>
+    <!-- APENAS UM arquivo JavaScript -->
     <script src="assets/js/events.js"></script>
-    <script src="assets/js/funcionalidade.js"></script>
   </body>
 </html>

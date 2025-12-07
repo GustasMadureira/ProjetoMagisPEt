@@ -364,6 +364,102 @@ body {
   color: #444;
 }
 
+/* Container dos botões de administração do evento (no topo do modal) */
+.evento-acoes-admin {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Botões Gerais (Base) */
+.btn-editar-evento,
+.btn-excluir-evento,
+.btn-salvar-evento,
+.btn-cancelar-evento,
+.btn-editar-comentario,
+.btn-apagar-comentario,
+.btn-salvar-edicao,
+.btn-cancelar-edicao {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- Botões de Evento --- */
+.btn-editar-evento {
+  background-color: #ffc107;
+  color: #333;
+}
+.btn-editar-evento:hover {
+  background-color: #e0a800;
+}
+
+.btn-excluir-evento {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-excluir-evento:hover {
+  background-color: #c82333;
+}
+
+.btn-salvar-evento {
+  background-color: #28a745;
+  color: white;
+}
+.btn-cancelar-evento {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* --- Botões de Comentário (Pequenos) --- */
+.comentario-acoes {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-editar-comentario {
+  background-color: #e9ecef;
+  color: #495057;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+}
+.btn-editar-comentario:hover {
+  background-color: #dde2e6;
+  color: #212529;
+}
+
+.btn-apagar-comentario {
+  background-color: #ffeaea;
+  color: #dc3545;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+}
+.btn-apagar-comentario:hover {
+  background-color: #fcd2d2;
+}
+
+/* Inputs de Edição (Quando clica em editar) */
+.input-edit-evento,
+.textarea-edit-evento {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #751a24;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
 /* ========== AVALIAÇÃO ========== */
 .secao-avaliacao {
   border-top: 2px solid #fff0db;
