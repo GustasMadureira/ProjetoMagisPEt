@@ -102,106 +102,216 @@
   "chat": [
     {
       "id": "1",
-      "animal_id": 1,
-      "usuario_id": 1,
-      "mensagem": "Tenho interesse em adotar o Rex, ele está disponível? Update",
-      "data_criacao": "2025-10-25T10:30:00.000Z",
-      "data_atualizacao": "2025-11-13T23:40:45.178Z"
+      "animalId": 1,
+      "usuarioId": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
+      "mensagem": "Tenho interesse em adotar o Rex, ele está disponível?",
+      "dataCriacao": "2025-10-25T10:30:00.000Z",
+      "dataAtualizacao": "2025-11-13T23:40:45.178Z"
     },
     {
       "id": "2",
-      "animal_id": 1,
-      "usuario_id": 2,
+      "animalId": 1,
+      "usuarioId": "eefc498f-6e04-4214-b327-94eaa92abd04",
       "mensagem": "Oi! Sim, ele está disponível para adoção.",
-      "data_criacao": "2025-10-25T10:35:00.000Z"
+      "dataCriacao": "2025-10-25T10:35:00.000Z"
     },
     {
       "id": "3",
-      "animal_id": 2,
-      "usuario_id": 1,
+      "animalId": 2,
+      "usuarioId": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
       "mensagem": "A Mia é carinhosa?",
-      "data_criacao": "2025-10-25T11:00:00.000Z"
+      "dataCriacao": "2025-10-25T11:00:00.000Z"
     },
     {
       "id": "4",
-      "animal_id": 2,
-      "usuario_id": 2,
+      "animalId": 2,
+      "usuarioId": "eefc498f-6e04-4214-b327-94eaa92abd04",
       "mensagem": "Sim, ela é muito dócil e adora carinho!",
-      "data_criacao": "2025-10-25T11:05:00.000Z"
+      "dataCriacao": "2025-10-25T11:05:00.000Z"
     },
     {
       "id": "5",
-      "animal_id": 3,
-      "usuario_id": 1,
+      "animalId": 3,
+      "usuarioId": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
       "mensagem": "O Bob precisa de muito espaço?",
-      "data_criacao": "2025-10-25T12:00:00.000Z"
+      "dataCriacao": "2025-10-25T12:00:00.000Z"
     }
   ],
   "eventos": [
     {
-      "id": "d168",
-      "nome-evento": "Campanha de Vacinação",
-      "data-evento": "2025-11-20",
-      "hora-evento": "10:00 ás 16:00",
-      "local-evento": "Centro Comunitário Vila Nova",
-      "descricao-Comp": "Campanha de vacinação gratuita para cães e gatos em parceria com ONGs locais e veterinários voluntários. Serão aplicadas vacinas antirrábica, V9, V10 e outras essenciais para a saúde do seu pet. Traga a carteira de vacinação e documento de identidade.",
-      "descricao-curta": "Projeta o seu Pet com vacinas gratuitas!",
-      "link-banner": "https://picsum.photos/id/237/400/250"
-    },
-    {
-      "nome-evento": null,
-      "data-evento": null,
-      "hora-evento": null,
-      "local-evento": null,
-      "descricao-curta": null,
-      "descricao-comp": null,
-      "link-banner": null,
-      "id": "b59f"
-    },
-    {
-      "id": "1fba",
-      "nome-evento": "Encontro de Adoção Consciente",
-      "data-evento": "2025-11-25",
-      "hora-evento": "10:00 ás 16:00",
-      "local-evento": "Shopping Minas Boulevard",
-      "descricao-comp": "Traga sua família para conhecer animais incríveis e adotar com responsabilidade. Psicólogos e veterinários estarão presentes para orientar sobre a escolha ideal do pet para seu perfil familiar. Todos os animais estão castrados, vermifugados e com vacinas em dia.",
-      "descricao-curta": "Adote com amor e responsabilidade!",
-      "link-banner": "https://picsum.photos/id/1025/400/250"
-    },
-    {
-      "id": "4147",
-      "nome-evento": "Dia do Pet na Praça",
-      "data-evento": "2025-12-02",
-      "hora-evento": "10:00 ás 18:00",
-      "local-evento": "Praça da Liberdade",
-      "descricao-comp": "Atividades recreativas, concurso de fantasias, brindes e muito carinho para os bichinhos! Haverá banho e tosa gratuitos (vagas limitadas), distribuição de petiscos, serviço de identificação por microchip e muito mais. Traga seu pet e participe!",
-      "descricao-curta": "Adote com amor e responsabilidade!",
-      "link-banner": "https://picsum.photos/id/1062/400/250"
-    }
-  ],
-  "eventsData": [
-    {
       "id": "1",
-      "organizer": "ONG Patinhas Felizes",
-      "date": "2 dias atrás",
-      "title": "Feira de Adoção - Shopping Center",
-      "description": "Grande feira de adoção com mais de 50 pets disponíveis! Venha nos visitar e encontre seu novo melhor amigo. Teremos cães e gatos de todas as idades esperando por você.",
-      "image": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&amp;h=400&amp;fit=crop",
-      "location": "Shopping Belo Horizonte",
-      "time": "14:00 - 18:00",
+      "nomeEvento": "Campanha de Vacinação",
+      "dataEvento": "2025-11-20",
+      "horaEvento": "10:00 às 16:00",
+      "localEvento": "Centro Comunitário Vila Nova",
+      "descricaoCompleta": "Campanha de vacinação gratuita para cães e gatos em parceria com ONGs locais e veterinários voluntários. Serão aplicadas vacinas antirrábica, V9, V10 e outras essenciais para a saúde do seu pet. Traga a carteira de vacinação e documento de identidade.",
+      "descricaoCurta": "Proteja o seu Pet com vacinas gratuitas!",
+      "linkBanner": "https://picsum.photos/id/237/400/250",
       "ratings": [],
       "comments": []
-    }
-  ],
-  "propagandas": [
+    },
     {
-      "nome": "xxxx",
-      "email": "xxxx",
-      "telefone": "xxxx-xxxx",
-      "categoria": "xxxx",
-      "sobre_anuncio": "xxxx",
-      "imagem": "xxxx",
-      "id": "ec25"
+      "id": "2",
+      "nomeEvento": "Encontro de Adoção Consciente",
+      "dataEvento": "2025-11-25",
+      "horaEvento": "10:00 às 16:00",
+      "localEvento": "Shopping Minas Boulevard",
+      "descricaoCompleta": "Traga sua família para conhecer animais incríveis e adotar com responsabilidade. Psicólogos e veterinários estarão presentes para orientar sobre a escolha ideal do pet para seu perfil familiar. Todos os animais estão castrados, vermifugados e com vacinas em dia.",
+      "descricaoCurta": "Adote com amor e responsabilidade!",
+      "linkBanner": "https://picsum.photos/id/1025/400/250",
+      "ratings": [
+        5,
+        4,
+        5
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "nome": "Maria Silva",
+          "texto": "Evento maravilhoso! Adotei minha gatinha lá.",
+          "data": "26/11/2025 às 14:30"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nomeEvento": "Dia do Pet na Praça",
+      "dataEvento": "2025-12-02",
+      "horaEvento": "10:00 às 18:00",
+      "localEvento": "Praça da Liberdade",
+      "descricaoCompleta": "Atividades recreativas, concurso de fantasias, brindes e muito carinho para os bichinhos! Haverá banho e tosa gratuitos (vagas limitadas), distribuição de petiscos, serviço de identificação por microchip e muito mais. Traga seu pet e participe!",
+      "descricaoCurta": "Diversão garantida para você e seu pet!",
+      "linkBanner": "https://picsum.photos/id/1062/400/250",
+      "ratings": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "nome": "João Pedro",
+          "texto": "Meu cachorro adorou o evento!",
+          "data": "03/12/2025 às 16:20"
+        },
+        {
+          "id": 2,
+          "nome": "Ana Costa",
+          "texto": "Muito bem organizado, parabéns!",
+          "data": "03/12/2025 às 17:45"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "nomeEvento": "Feira de Adoção - Shopping Center",
+      "dataEvento": "2025-12-10",
+      "horaEvento": "14:00 às 18:00",
+      "localEvento": "Shopping Belo Horizonte",
+      "descricaoCompleta": "Grande feira de adoção com mais de 50 pets disponíveis! Venha nos visitar e encontre seu novo melhor amigo. Teremos cães e gatos de todas as idades esperando por você. Equipe de veterinários e psicólogos para orientação.",
+      "descricaoCurta": "Encontre seu novo melhor amigo!",
+      "linkBanner": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&h=400&fit=crop",
+      "ratings": [
+        5,
+        4,
+        5,
+        5
+      ],
+      "comments": []
+    },
+    {
+      "id": "5",
+      "nomeEvento": "Campanha de Castração Gratuita",
+      "dataEvento": "2025-12-15",
+      "horaEvento": "08:00 às 17:00",
+      "localEvento": "Clínica Veterinária Central",
+      "descricaoCompleta": "Mutirão de castração gratuita para cães e gatos. Vagas limitadas! Inscrições abertas. Ajude a controlar a população de animais abandonados. Procedimento realizado por veterinários experientes com todo cuidado e segurança.",
+      "descricaoCurta": "Castração gratuita - Vagas limitadas!",
+      "linkBanner": "https://images.unsplash.com/photo-1415369629372-26f2fe60c467?w=600&h=400&fit=crop",
+      "ratings": [
+        5,
+        5,
+        5
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "nome": "Carlos Mendes",
+          "texto": "Serviço excelente e totalmente gratuito!",
+          "data": "16/12/2025 às 10:15"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "nomeEvento": "Aulão de Adestramento Positivo",
+      "dataEvento": "2025-12-18",
+      "horaEvento": "10:00 às 12:00",
+      "localEvento": "Parque Municipal",
+      "descricaoCompleta": "Aprenda técnicas de adestramento positivo com especialistas! Evento gratuito para tutores e futuros tutores. Traga seu pet! Métodos modernos e eficazes baseados em reforço positivo.",
+      "descricaoCurta": "Aprenda a educar seu pet com amor!",
+      "linkBanner": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=600&h=400&fit=crop",
+      "ratings": [
+        4,
+        5
+      ],
+      "comments": []
+    },
+    {
+      "id": "7",
+      "nomeEvento": "Bazar Beneficente para Pets",
+      "dataEvento": "2025-12-20",
+      "horaEvento": "09:00 às 16:00",
+      "localEvento": "Praça da Liberdade",
+      "descricaoCompleta": "Bazar com roupas, acessórios e brinquedos para pets. Toda a renda será revertida para o resgate de animais em situação de rua. Venha fazer suas compras e ajudar uma causa nobre!",
+      "descricaoCurta": "Compre e ajude animais em situação de rua!",
+      "linkBanner": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop",
+      "ratings": [
+        5,
+        3,
+        2,
+        4
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "nome": "Fernanda Lima",
+          "texto": "Encontrei muitas coisas legais para meu pet!",
+          "data": "20/12/2025 às 11:30"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "nomeEvento": "Encontro de Adotantes",
+      "dataEvento": "2025-12-22",
+      "horaEvento": "15:00 às 18:00",
+      "localEvento": "Café Pet Friendly",
+      "descricaoCompleta": "Evento especial para reunir tutores que adotaram através de nossa plataforma. Venha compartilhar sua história e conhecer outros amantes de pets! Networking, trocas de experiências e muita diversão.",
+      "descricaoCurta": "Encontro especial de tutores que adotaram!",
+      "linkBanner": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop",
+      "ratings": [
+        5,
+        5,
+        4,
+        3,
+        5
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "nome": "Roberto Santos",
+          "texto": "Adorei conhecer outros tutores! Experiência incrível.",
+          "data": "22/12/2025 às 17:00"
+        },
+        {
+          "id": 2,
+          "nome": "Patricia Alves",
+          "texto": "Ambiente acolhedor e pets felizes!",
+          "data": "22/12/2025 às 17:30"
+        }
+      ]
     }
   ],
   "parcerias": [
@@ -211,8 +321,42 @@
       "tipoParceria": "Pet Shop",
       "telefone": "(11) 98765-4321",
       "tipoContrato": "Contrato Anual",
-      "website": "https://www.petlove.com.br",
+      "website": "https://www.petlove.com.br/",
       "urlLogo": "valor"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
+      "nome": "Gabriel Mendes",
+      "email": "gabriel@email.com",
+      "telefone": "31999999999",
+      "senha": "123",
+      "admin": true
+    },
+    {
+      "id": "eefc498f-6e04-4214-b327-94eaa92abd04",
+      "nome": "Gabriel",
+      "email": "Teste@email.com",
+      "telefone": "319999999",
+      "senha": "123456",
+      "admin": false
+    },
+    {
+      "id": "3df54e47-632b-4c2d-9c73-2300ca015de7",
+      "nome": "Erick Candido",
+      "email": "erick@email.com",
+      "telefone": "3199999999",
+      "senha": "123456",
+      "admin": false
+    },
+    {
+      "id": "18d87fe2-e004-4a54-a643-a9c087b5f362",
+      "nome": "teste",
+      "email": "tesste@email.com",
+      "telefone": "3199999999",
+      "senha": "123456",
+      "admin": false
     }
   ]
 }

@@ -27,7 +27,6 @@ async function carregarEventos() {
     return;
   }
 
-  // Mostra loading
   grid.innerHTML =
     '<p style="text-align: center; padding: 40px; color: #751a24;">⏳ Carregando eventos...</p>';
 
@@ -36,16 +35,11 @@ async function carregarEventos() {
     console.log("📡 Buscando eventos em:", url);
 
     const response = await fetch(url);
-    console.log("📡 Status:", response.status);
-
-    if (!response.ok) {
-      throw new Error(`Erro HTTP: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
 
     const data = await response.json();
-    console.log("📦 Dados recebidos:", data);
+    console.log("📦 Dados brutos recebidos:", data); // Olhe isso no console (F12)
 
-    // Identifica a estrutura dos dados
     let eventos = [];
     if (Array.isArray(data)) {
       eventos = data;
@@ -53,41 +47,74 @@ async function carregarEventos() {
       eventos = data.eventos;
     }
 
-    // Filtra eventos válidos (remove eventos com campos null)
-    eventos = eventos.filter(
-      (evento) =>
-        evento["nome-evento"] && evento["data-evento"] && evento["local-evento"]
-    );
+    // --- CORREÇÃO AQUI: PADRONIZAÇÃO DOS DADOS ---
+    // Em vez de filtrar e excluir, vamos tentar "consertar" os nomes
+    eventos = eventoseventos = eventos.map((evento) => {
+      return {
+        ...evento, // Mantém o resto das propriedades originais
 
-    console.log("✅ Total de eventos válidos:", eventos.length);
+        // Mapeia nomeEvento (do JSON) para nome-evento (do JS)
+        "nome-evento":
+          evento.nomeEvento ||
+          evento["nome-evento"] ||
+          evento.titulo ||
+          "Evento sem nome",
 
-    // Limpa o container
+        // Mapeia dataEvento (do JSON) para data-evento (do JS)
+        "data-evento":
+          evento.dataEvento ||
+          evento["data-evento"] ||
+          evento.data ||
+          "Data a definir",
+
+        // Mapeia horaEvento (do JSON) para hora-evento (do JS)
+        "hora-evento":
+          evento.horaEvento || evento["hora-evento"] || "Horário a definir",
+
+        // Mapeia localEvento (do JSON) para local-evento (do JS)
+        "local-evento":
+          evento.localEvento ||
+          evento["local-evento"] ||
+          evento.local ||
+          "Local a definir",
+
+        // Mapeia linkBanner (do JSON) para link-banner (do JS)
+        "link-banner":
+          evento.linkBanner ||
+          evento["link-banner"] ||
+          evento.imagem ||
+          "https://via.placeholder.com/600x300?text=Sem+Imagem",
+
+        // Mapeia descrições
+        "descricao-comp":
+          evento.descricaoCompleta ||
+          evento["descricao-comp"] ||
+          evento.descricao ||
+          "Descrição indisponível",
+        "descricao-curta":
+          evento.descricaoCurta || evento["descricao-curta"] || "",
+      };
+    });
+    // ---------------------------------------------
+    // ---------------------------------------------
+
+    console.log("✅ Total de eventos encontrados:", eventos.length);
+
     grid.innerHTML = "";
 
     if (eventos.length === 0) {
       grid.innerHTML =
-        '<p style="text-align: center; padding: 40px; color: #666;">📅 Nenhum evento disponível no momento.</p>';
+        '<p style="text-align: center; padding: 40px; color: #666;">📅 Nenhum evento encontrado na API.</p>';
       return;
     }
 
-    // Cria os cards
     eventos.forEach((evento) => {
       const card = criarCardEvento(evento);
       grid.appendChild(card);
     });
-
-    console.log(`✅ ${eventos.length} cards de eventos renderizados`);
   } catch (error) {
     console.error("❌ Erro ao carregar eventos:", error);
-    grid.innerHTML = `
-      <div style="text-align: center; padding: 40px;">
-        <p style="color: #d32f2f; font-size: 18px; margin-bottom: 10px;">❌ Erro ao carregar eventos</p>
-        <p style="color: #666; font-size: 14px; margin-bottom: 20px;">${error.message}</p>
-        <button onclick="carregarEventos()" style="padding: 12px 24px; background: #751a24; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; transition: background 0.3s;">
-          🔄 Tentar novamente
-        </button>
-      </div>
-    `;
+    grid.innerHTML = `<p style="text-align: center; color: red;">Erro ao carregar: ${error.message}</p>`;
   }
 }
 
