@@ -1,103 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MagisPet</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/img/icone.png" type="imagem-icone" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MagisPet</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="assets/img/icone.png" type="imagem-icone">
-</head>
+  <body>
+    <header class="header">
+      <div class="container-header">
+        <div class="logo">
+          <h1>
+            <img
+              src="assets/img/magispet prata 3.png"
+              alt="MagisPet"
+              class="logo-img"
+            />
+          </h1>
+        </div>
 
-<body>
-  <header class="header">
-    <div class="container-header">
-      <div class="logo">
-        <h1><img src="assets/img/magispet prata 3.png" alt="MagisPet" class="logo-img"></h1>
+        <nav class="nav-menu">
+          <a href="home.html" class="nav-link active">Home</a>
+          <a href="pag-sobre.html" class="nav-link">Sobre</a>
+          <a href="anuncios.html" class="nav-link">Adotar</a>
+          <a href="parcerias-solicitacao.html" class="nav-link"
+            >Parcerias</a
+          >
+          <a href="events.html" class="nav-link">Eventos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn-login" onclick="location.href='login.html'">
+            LOGIN
+          </button>
+          <button class="btn-registrar">REGISTRAR</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-home">
+      <h2>Amor não tem raça, adote</h2>
+
+      <section class="home-section">
+        <div class="home-img">
+          <img src="assets/img/caeadote1.jpg" alt="cachorro adoção" />
+        </div>
+        <div class="home-text">
+          <p>
+            Existe um coração nas ruas esperando pela chance de ter um lar. Cães
+            abandonados já enfrentaram o sofrimento, mas a única coisa que eles
+            guardam é a capacidade de amar de um jeito que não se mede. Ao
+            adotar, você salva uma vida e ganha um amigo leal, forte e único,
+            que vai encher sua casa de alegria. Não compre um amigo. Escolha a
+            adoção responsável, mude o destino de um cão e descubra a força de
+            um amor que não tem preço, nem raça. Faça a diferença hoje!
+          </p>
+        </div>
+      </section>
+
+      <section class="home-section reverse">
+        <div class="home-text">
+          <p>
+            Ao adotar um gato de rua, você não só salva uma vida, como também
+            ganha um amigo que vai encher sua casa de paz e alegria. Gatos são
+            mestres em fazer companhia, transformando um lugar vazio em um
+            verdadeiro lar. A adoção é um ato de amor! Não compre, adote. Traga
+            para casa o ronronar mais sincero do mundo. O amor deles é o melhor
+            presente que você pode receber. Venha conhecer seu novo amigo
+            peludo!
+          </p>
+        </div>
+        <div class="home-img">
+          <img src="assets/img/gatoadote.jpg" alt="gato adoção" />
+        </div>
+      </section>
+      <div class="btn-container">
+        <button class="btn-adotar" onclick="location.href='login.html'">
+          Quero Adotar
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="footer-col">
+          <h3>🐾 MagisPet</h3>
+          <p>Trabalho Interdisciplinar criação web</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="anuncios.html">Adotar</a></li>
+            <li><a href="#">Cadastrar Animal</a></li>
+            <li><a href="#">Eventos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li>📧 contato@magispet.com</li>
+            <li>📍 Belo Horizonte, MG</li>
+          </ul>
+        </div>
       </div>
 
-      <nav class="nav-menu">
-        <a href="home.html" class="nav-link active">Home</a>
-        <a href="pag-sobre.html" class="nav-link">Sobre</a>
-        <a href="anuncios.html" class="nav-link">Adotar</a>
-        <a href="#" class="nav-link">Parcerias</a>
-        <a href="events.html" class="nav-link">Eventos</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="btn-login" onclick="location.href='login.html'">LOGIN</button>
-        <button class="btn-registrar">REGISTRAR</button>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
       </div>
-    </div>
-  </header>
-
-
-  <main class="main-home">
-    <h2>Amor não tem raça, adote</h2>
-
-    <section class="home-section">
-      <div class="home-img">
-        <img src="assets/img/caeadote1.jpg" alt="cachorro adoção">
-      </div>
-      <div class="home-text">
-        <p>
-          Existe um coração nas ruas esperando pela chance de ter um lar. Cães abandonados já enfrentaram o sofrimento,
-          mas a única coisa que eles guardam é a capacidade de amar de um jeito que não se mede. Ao adotar, você salva
-          uma vida e ganha um amigo leal, forte e único, que vai encher sua casa de alegria. Não compre um amigo.
-          Escolha a adoção responsável, mude o destino de um cão e descubra a força de um amor que não tem preço, nem
-          raça. Faça a diferença hoje!
-        </p>
-      </div>
-    </section>
-
-    <section class="home-section reverse">
-      <div class="home-text">
-        <p>
-          Ao adotar um gato de rua, você não só salva uma vida, como também ganha um amigo que vai encher sua casa de
-          paz e alegria. Gatos são mestres em fazer companhia, transformando um lugar vazio em um verdadeiro lar. A
-          adoção é um ato de amor! Não compre, adote. Traga para casa o ronronar mais sincero do mundo. O amor deles é o
-          melhor presente que você pode receber. Venha conhecer seu novo amigo peludo!
-        </p>
-      </div>
-      <div class="home-img">
-        <img src="assets/img/gatoadote.jpg" alt="gato adoção">
-      </div>
-    </section>
-    <div class="btn-container">
-      <button class="btn-adotar" onclick="location.href='login.html'">Quero Adotar</button>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container-footer">
-      <div class="footer-col">
-        <h3>🐾 MagisPet</h3>
-        <p>Trabalho Interdisciplinar criação web</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Páginas</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="anuncios.html">Adotar</a></li>
-          <li><a href="#">Cadastrar Animal</a></li>
-          <li><a href="#">Eventos</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul>
-          <li>📧 contato@magispet.com</li>
-          <li>📍 Belo Horizonte, MG</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

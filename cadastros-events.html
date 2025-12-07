@@ -1,328 +1,342 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar Evento - MagisPet</title>
+    <link
+      rel="icon"
+      href="assets/img/icone_magis_vermelho.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="assets/css/cadastros-events.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastrar Evento - MagisPet</title>
-  <link rel="icon" href="assets/img/icone_magis_vermelho.png" type="image/png"/> 
-  <link rel="stylesheet" href="assets/css/cadastros-events.css" />
-</head>
-
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container-header">
-      <div class="logo">
-        <h1>
-          <img
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container-header">
+        <div class="logo">
+          <h1>
+            <img
               src="assets/img/magispet prata 3.png"
               alt="Magispet"
               class="logo-img"
             />
-        </h1>
-      </div>
-      <nav class="nav-menu">
-        <a href="home.html" class="nav-link">Home</a>
-        <a href="pag-sobre.html" class="nav-link">Sobre</a>
-        <a href="anuncios.html" class="nav-link">Adotar</a>
-        <a href="#" class="nav-link">Parcerias</a>
-        <a href="events.html" class="nav-link active">Eventos</a>
-      </nav>
-      <div class="header-actions">
-        <button class="btn-login">LOGIN</button>
-        <button class="btn-registrar">REGISTRAR</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Container Principal -->
-  <div class="container-cadastro">
-    <h1 class="titulo-pagina"> Cadastrar Novo Evento</h1>
-    <p class="subtitulo-pagina">
-      Preencha as informações abaixo para criar um novo evento
-    </p>
-
-    <div class="mensagem-sucesso" id="mensagemSucesso">
-      ✅ Evento cadastrado com sucesso!
-    </div>
-
-    <div class="mensagem-erro" id="mensagemErro">
-      ❌ Erro ao cadastrar evento. Tente novamente.
-    </div>
-
-    <form class="form-cadastro" id="form-evento">
-      <!-- ID Oculto para Edição -->
-      <input type="hidden" id="evento-id" />
-
-      <!-- Nome do Evento -->
-      <div class="form-group">
-        <label for="nome-evento">
-          Nome do Evento <span class="obrigatorio">*</span>
-        </label>
-        <input
-          type="text"
-          id="nome-evento"
-          class="form-input"
-          placeholder="Ex: Feira de Adoção de Primavera"
-          required
-          maxlength="100"
-        />
-        <div class="caracteres-info">
-          <span id="contador-nome">0</span>/100 caracteres
+          </h1>
+        </div>
+        <nav class="nav-menu">
+          <a href="home.html" class="nav-link">Home</a>
+          <a href="pag-sobre.html" class="nav-link">Sobre</a>
+          <a href="anuncios.html" class="nav-link">Adotar</a>
+          <a href="parcerias-solicitacao.html" class="nav-link"
+            >Parcerias</a
+          >
+          <a href="events.html" class="nav-link active">Eventos</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-login">LOGIN</button>
+          <button class="btn-registrar">REGISTRAR</button>
         </div>
       </div>
+    </header>
 
-      <!-- Link do Banner do Evento -->
-      <div class="form-group">
-        <label for="link-banner">
-          Link da Imagem do Banner <span class="obrigatorio">*</span>
-        </label>
-        <input
-          type="url"
-          id="link-banner"
-          class="form-input"
-          placeholder="https://exemplo.com/imagem.jpg"
-          required
-        />
-        <div class="caracteres-info">
-          Insira o link direto da imagem (JPG, PNG, GIF)
-        </div>
-        <img id="preview-image" class="preview-image" alt="Preview do banner" />
-        <button type="button" class="btn-preview" onclick="carregarPreview()">
-           Visualizar Imagem
-        </button>
+    <!-- Container Principal -->
+    <div class="container-cadastro">
+      <h1 class="titulo-pagina">Cadastrar Novo Evento</h1>
+      <p class="subtitulo-pagina">
+        Preencha as informações abaixo para criar um novo evento
+      </p>
+
+      <div class="mensagem-sucesso" id="mensagemSucesso">
+        ✅ Evento cadastrado com sucesso!
       </div>
 
-      <!-- Data e Horário -->
-      <div class="form-row">
+      <div class="mensagem-erro" id="mensagemErro">
+        ❌ Erro ao cadastrar evento. Tente novamente.
+      </div>
+
+      <form class="form-cadastro" id="form-evento">
+        <!-- ID Oculto para Edição -->
+        <input type="hidden" id="evento-id" />
+
+        <!-- Nome do Evento -->
         <div class="form-group">
-          <label for="data-evento">
-            Data do Evento <span class="obrigatorio">*</span>
-          </label>
-          <input type="date" id="data-evento" class="form-input" required />
-        </div>
-
-        <div class="form-group">
-          <label for="horario-evento">
-            Horário <span class="obrigatorio">*</span>
+          <label for="nome-evento">
+            Nome do Evento <span class="obrigatorio">*</span>
           </label>
           <input
             type="text"
-            id="horario-evento"
+            id="nome-evento"
             class="form-input"
-            placeholder="Ex: 09:00 às 17:00"
+            placeholder="Ex: Feira de Adoção de Primavera"
+            required
+            maxlength="100"
+          />
+          <div class="caracteres-info">
+            <span id="contador-nome">0</span>/100 caracteres
+          </div>
+        </div>
+
+        <!-- Link do Banner do Evento -->
+        <div class="form-group">
+          <label for="link-banner">
+            Link da Imagem do Banner <span class="obrigatorio">*</span>
+          </label>
+          <input
+            type="url"
+            id="link-banner"
+            class="form-input"
+            placeholder="https://exemplo.com/imagem.jpg"
             required
           />
+          <div class="caracteres-info">
+            Insira o link direto da imagem (JPG, PNG, GIF)
+          </div>
+          <img
+            id="preview-image"
+            class="preview-image"
+            alt="Preview do banner"
+          />
+          <button type="button" class="btn-preview" onclick="carregarPreview()">
+            Visualizar Imagem
+          </button>
         </div>
-      </div>
 
-      <!-- ========== ENDEREÇO COM VIACEP ========== -->
-      <div class="secao-endereco">
-        <h3 class="titulo-secao"> Endereço do Evento</h3>
-        
-        <!-- CEP -->
+        <!-- Data e Horário -->
         <div class="form-row">
           <div class="form-group">
-            <label for="cep-evento">
-              CEP <span class="obrigatorio">*</span>
+            <label for="data-evento">
+              Data do Evento <span class="obrigatorio">*</span>
+            </label>
+            <input type="date" id="data-evento" class="form-input" required />
+          </div>
+
+          <div class="form-group">
+            <label for="horario-evento">
+              Horário <span class="obrigatorio">*</span>
             </label>
             <input
               type="text"
-              id="cep-evento"
+              id="horario-evento"
               class="form-input"
-              placeholder="00000-000"
+              placeholder="Ex: 09:00 às 17:00"
               required
-              maxlength="9"
             />
-            <button type="button" class="btn-buscar-cep" onclick="buscarCEP()">
-               Buscar CEP
-            </button>
-            <div class="loading-cep" id="loading-cep" style="display: none;">
-               Buscando CEP...
+          </div>
+        </div>
+
+        <!-- ========== ENDEREÇO COM VIACEP ========== -->
+        <div class="secao-endereco">
+          <h3 class="titulo-secao">Endereço do Evento</h3>
+
+          <!-- CEP -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cep-evento">
+                CEP <span class="obrigatorio">*</span>
+              </label>
+              <input
+                type="text"
+                id="cep-evento"
+                class="form-input"
+                placeholder="00000-000"
+                required
+                maxlength="9"
+              />
+              <button
+                type="button"
+                class="btn-buscar-cep"
+                onclick="buscarCEP()"
+              >
+                Buscar CEP
+              </button>
+              <div class="loading-cep" id="loading-cep" style="display: none">
+                Buscando CEP...
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="numero-evento">
+                Número <span class="obrigatorio">*</span>
+              </label>
+              <input
+                type="text"
+                id="numero-evento"
+                class="form-input"
+                placeholder="Nº"
+                required
+              />
             </div>
           </div>
 
+          <!-- Rua e Bairro -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rua-evento">
+                Rua/Logradouro <span class="obrigatorio">*</span>
+              </label>
+              <input
+                type="text"
+                id="rua-evento"
+                class="form-input"
+                placeholder="Nome da rua"
+                required
+                readonly
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="bairro-evento">
+                Bairro <span class="obrigatorio">*</span>
+              </label>
+              <input
+                type="text"
+                id="bairro-evento"
+                class="form-input"
+                placeholder="Bairro"
+                required
+                readonly
+              />
+            </div>
+          </div>
+
+          <!-- Cidade e Estado -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cidade-evento">
+                Cidade <span class="obrigatorio">*</span>
+              </label>
+              <input
+                type="text"
+                id="cidade-evento"
+                class="form-input"
+                placeholder="Cidade"
+                required
+                readonly
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="estado-evento">
+                Estado <span class="obrigatorio">*</span>
+              </label>
+              <input
+                type="text"
+                id="estado-evento"
+                class="form-input"
+                placeholder="UF"
+                required
+                readonly
+                maxlength="2"
+              />
+            </div>
+          </div>
+
+          <!-- Complemento (opcional) -->
           <div class="form-group">
-            <label for="numero-evento">
-              Número <span class="obrigatorio">*</span>
-            </label>
+            <label for="complemento-evento"> Complemento (opcional) </label>
             <input
               type="text"
-              id="numero-evento"
+              id="complemento-evento"
               class="form-input"
-              placeholder="Nº"
-              required
+              placeholder="Ex: Ao lado do parque, próximo à escola"
+              maxlength="100"
             />
           </div>
         </div>
 
-        <!-- Rua e Bairro -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rua-evento">
-              Rua/Logradouro <span class="obrigatorio">*</span>
-            </label>
-            <input
-              type="text"
-              id="rua-evento"
-              class="form-input"
-              placeholder="Nome da rua"
-              required
-              readonly
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="bairro-evento">
-              Bairro <span class="obrigatorio">*</span>
-            </label>
-            <input
-              type="text"
-              id="bairro-evento"
-              class="form-input"
-              placeholder="Bairro"
-              required
-              readonly
-            />
-          </div>
-        </div>
-
-        <!-- Cidade e Estado -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cidade-evento">
-              Cidade <span class="obrigatorio">*</span>
-            </label>
-            <input
-              type="text"
-              id="cidade-evento"
-              class="form-input"
-              placeholder="Cidade"
-              required
-              readonly
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="estado-evento">
-              Estado <span class="obrigatorio">*</span>
-            </label>
-            <input
-              type="text"
-              id="estado-evento"
-              class="form-input"
-              placeholder="UF"
-              required
-              readonly
-              maxlength="2"
-            />
-          </div>
-        </div>
-
-        <!-- Complemento (opcional) -->
+        <!-- Descrição Curta -->
         <div class="form-group">
-          <label for="complemento-evento">
-            Complemento (opcional)
+          <label for="descricao-curta">
+            Descrição Curta <span class="obrigatorio">*</span>
           </label>
-          <input
-            type="text"
-            id="complemento-evento"
-            class="form-input"
-            placeholder="Ex: Ao lado do parque, próximo à escola"
-            maxlength="100"
-          />
+          <textarea
+            id="descricao-curta"
+            class="form-textarea"
+            placeholder="Uma breve descrição que aparecerá no card do evento"
+            required
+            maxlength="200"
+          ></textarea>
+          <div class="caracteres-info">
+            <span id="contador-desc-curta">0</span>/200 caracteres
+          </div>
         </div>
-      </div>
 
-      <!-- Descrição Curta -->
-      <div class="form-group">
-        <label for="descricao-curta">
-          Descrição Curta <span class="obrigatorio">*</span>
-        </label>
-        <textarea
-          id="descricao-curta"
-          class="form-textarea"
-          placeholder="Uma breve descrição que aparecerá no card do evento"
-          required
-          maxlength="200"
-        ></textarea>
-        <div class="caracteres-info">
-          <span id="contador-desc-curta">0</span>/200 caracteres
+        <!-- Descrição Completa -->
+        <div class="form-group">
+          <label for="descricao-completa">
+            Descrição Completa <span class="obrigatorio">*</span>
+          </label>
+          <textarea
+            id="descricao-completa"
+            class="form-textarea descricao-longa"
+            placeholder="Descreva detalhadamente o evento"
+            required
+            maxlength="1000"
+          ></textarea>
+          <div class="caracteres-info">
+            <span id="contador-desc-completa">0</span>/1000 caracteres
+          </div>
         </div>
-      </div>
 
-      <!-- Descrição Completa -->
-      <div class="form-group">
-        <label for="descricao-completa">
-          Descrição Completa <span class="obrigatorio">*</span>
-        </label>
-        <textarea
-          id="descricao-completa"
-          class="form-textarea descricao-longa"
-          placeholder="Descreva detalhadamente o evento"
-          required
-          maxlength="1000"
-        ></textarea>
-        <div class="caracteres-info">
-          <span id="contador-desc-completa">0</span>/1000 caracteres
+        <!-- Botões de Ação -->
+        <div class="form-actions">
+          <button
+            type="button"
+            class="btn-cancelar"
+            onclick="cancelarCadastro()"
+          >
+            ❌ Cancelar
+          </button>
+          <button type="submit" class="btn-salvar" id="btn-salvar">
+            ✅ Cadastrar Evento
+          </button>
         </div>
-      </div>
+      </form>
 
-      <!-- Botões de Ação -->
-      <div class="form-actions">
-        <button type="button" class="btn-cancelar" onclick="cancelarCadastro()">
-          ❌ Cancelar
-        </button>
-        <button type="submit" class="btn-salvar" id="btn-salvar">
-          ✅ Cadastrar Evento
-        </button>
-      </div>
-    </form>
-
-    <!-- Lista de Eventos Cadastrados -->
-    <div class="lista-eventos-section">
-      <h2 class="titulo-secao">📋 Eventos Cadastrados</h2>
-      <div id="lista-eventos" class="lista-eventos">
-        <p class="loading">Carregando eventos...</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container-footer">
-      <div class="footer-col">
-        <h3>🐾 MagisPet</h3>
-        <p>Trabalho Interdisciplinar criação web</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Páginas</h4>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="anuncios.html">Adotar</a></li>
-          <li><a href="#">Cadastrar Animal</a></li>
-          <li><a href="events.html">Eventos</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul>
-          <li>📧 contato@magispet.com</li>
-          <li>📍 Belo Horizonte, MG</li>
-        </ul>
+      <!-- Lista de Eventos Cadastrados -->
+      <div class="lista-eventos-section">
+        <h2 class="titulo-secao">📋 Eventos Cadastrados</h2>
+        <div id="lista-eventos" class="lista-eventos">
+          <p class="loading">Carregando eventos...</p>
+        </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="footer-col">
+          <h3>🐾 MagisPet</h3>
+          <p>Trabalho Interdisciplinar criação web</p>
+        </div>
 
-  <script src="assets/js/cadastros-events.js"></script>
-  <script src="assets/js/funcionalidade.js"></script>
-</body>
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="anuncios.html">Adotar</a></li>
+            <li><a href="#">Cadastrar Animal</a></li>
+            <li><a href="events.html">Eventos</a></li>
+          </ul>
+        </div>
 
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li>📧 contato@magispet.com</li>
+            <li>📍 Belo Horizonte, MG</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/cadastros-events.js"></script>
+    <script src="assets/js/funcionalidade.js"></script>
+  </body>
 </html>

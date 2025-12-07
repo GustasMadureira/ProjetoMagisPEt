@@ -1,92 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Login - MagisPet</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/img/icone.png" type="imagem-icone" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página de Login - MagisPet</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="assets/img/icone.png" type="imagem-icone">
-</head>
-
-<body>
-  <header class="header">
-    <div class="container-header">
-      <div class="logo">
-        <h1><img src="assets/img/magispet prata 3.png" alt="MagisPet" class="logo-img"></h1>
-      </div>
-
-      <nav class="nav-menu">
-        <a href="home.html" class="nav-link active">Home</a>
-        <a href="pag-sobre.html" class="nav-link">Sobre</a>
-        <a href="anuncios.html" class="nav-link">Adotar</a>
-        <a href="#" class="nav-link">Parcerias</a>
-
-        <a href="events.html" class="nav-link">Eventos</a>
-      </nav>
-
-      <div class="header-actions">
-
-        <button class="btn-login" onclick="location.href='login.html'">LOGIN</button>
-        <button class="btn-registrar">REGISTRAR</button>
-      </div>
-    </div>
-  </header>
-
-  <main class="login-page-container">
-    <div class="login-container">
-      <div class="login-header">
-        <h2>Seja Bem-vindo!</h2>
-        <p>Efetue o login</p>
-      </div>
-
-
-      <form class="login-form" action="anuncios.html" method="get">
-        <div class="form-group">
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" required />
+  <body>
+    <header class="header">
+      <div class="container-header">
+        <div class="logo">
+          <h1>
+            <img
+              src="assets/img/magispet prata 3.png"
+              alt="MagisPet"
+              class="logo-img"
+            />
+          </h1>
         </div>
 
-        <div class="form-group">
-          <label for="password">Senha:</label>
-          <input type="password" id="password" name="password" required />
+        <nav class="nav-menu">
+          <a href="home.html" class="nav-link active">Home</a>
+          <a href="pag-sobre.html" class="nav-link">Sobre</a>
+          <a href="anuncios.html" class="nav-link">Adotar</a>
+          <a href="parcerias-solicitacao.html" class="nav-link">Parcerias</a>
+          <a href="events.html" class="nav-link">Eventos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn-login" onclick="location.href='login.html'">
+            LOGIN
+          </button>
+          <button
+            class="btn-registrar"
+            onclick="location.href='cadastro-usuario.html'"
+          >
+            REGISTRAR
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-page-container">
+      <div class="login-container">
+        <div class="login-header">
+          <h2>Seja Bem-vindo!</h2>
+          <p>Efetue o login</p>
         </div>
 
-        <button type="submit" class="btn-submit">ENTRAR</button>
-      </form>
-    </div>
-  </main>
+        <!-- ✅ CORRIGIDO: Removido action e method, adicionado id -->
+        <form class="login-form" id="login-form">
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
 
-  <footer class="footer">
-    <div class="container-footer">
-      <div class="footer-col">
-        <h3>🐾 MagisPet</h3>
-        <p>Trabalho Interdisciplinar - Criação Web</p>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <button type="submit" class="btn-submit">ENTRAR</button>
+
+          <p style="text-align: center; margin-top: 20px; font-size: 0.9rem">
+            Não tem uma conta?
+            <a
+              href="cadastro-usuario.html"
+              style="color: #751a24; font-weight: 600; text-decoration: none"
+              >Cadastre-se</a
+            >
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="footer-col">
+          <h3>🐾 MagisPet</h3>
+          <p>Trabalho Interdisciplinar - Criação Web</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="anuncios.html">Adotar</a></li>
+            <li><a href="#">Cadastrar Animal</a></li>
+            <li><a href="#">Eventos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li>📧 contato@magispet.com</li>
+            <li>📍 Belo Horizonte, MG</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Páginas</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="anuncios.html">Adotar</a></li>
-          <li><a href="#">Cadastrar Animal</a></li>
-          <li><a href="#">Eventos</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
       </div>
+    </footer>
 
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul>
-          <li>📧 contato@magispet.com</li>
-          <li>📍 Belo Horizonte, MG</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-</body>
-
+    <!-- ✅ CORRIGIDO: Script adicionado -->
+    <script src="assets/js/login.js"></script>
+  </body>
 </html>

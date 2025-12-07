@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Parcerias - MagisPet</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/parcerias.css">
+    <link rel="icon" href="assets/img/icone.png" type="imagem-icone">
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container-header">
+            <div class="logo">
+                <img src="assets/img/magispet prata 3.png" alt="MagisPet" class="logo-img" onclick="location.href='home.html'">
+            </div>
+            <nav class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="pag-sobre.html" class="nav-link">Sobre</a>
+                <a href="anuncios.html" class="nav-link">Adotar</a>
+                <a href="cadastro-parcerias.html" class="nav-link active">Parcerias</a>
+                <a href="events.html" class="nav-link">Eventos</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-login" onclick="location.href='login.html'">LOGIN</button>
+                <button class="btn-registrar" onclick="location.href='cadastro-usuario.html'">REGISTRAR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="parcerias-main">
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">🤝 Cadastro de Parcerias</h1>
+
+            <div class="card p-4">
+                <form id="form-parceria">
+                    <input type="hidden" id="partnerId">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nomeEmpresa" class="form-label">Nome da Empresa (*)</label>
+                            <input type="text" class="form-control" id="nomeEmpresa" placeholder="Informe o nome da empresa" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="telefone" class="form-label">Telefone de Contato (*)</label>
+                            <input type="text" class="form-control" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="tipoParceria" class="form-label">Tipo de Parceria (*)</label>
+                            <select id="tipoParceria" class="form-select" required>
+                                <option value="Pet Shop">Pet Shop</option>
+                                <option value="Clínica Veterinária">Clínica Veterinária</option>
+                                <option value="Fornecedor de Ração">Fornecedor de Ração</option>
+                                <option value="ONG">ONG</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="website" class="form-label">Website</label>
+                            <input type="url" class="form-control" id="website" placeholder="https://www.exemplo.com.br">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="tipoContrato" class="form-label">Tipo de Contrato</label>
+                            <select id="tipoContrato" class="form-select">
+                                <option value="Mensal">Mensal</option>
+                                <option value="Contrato Anual">Contrato Anual</option>
+                                <option value="Sem Contrato">Sem Contrato</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="urlLogo" class="form-label">URL do Logo</label>
+                            <input type="url" class="form-control" id="urlLogo" placeholder="https://www.site.com/logo.png">
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-3">
+                        <button type="submit" id="btnAdd" class="btn btn-add">✅ Adicionar</button>
+                        <button type="button" id="btnSave" class="btn btn-save d-none">💾 Salvar Edição</button>
+                        <button type="button" id="btnCancel" class="btn btn-cancel d-none">❌ Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <h2 class="mt-5 mb-3">📋 Parcerias Cadastradas</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nome da Empresa</th>
+                            <th>Tipo</th>
+                            <th>Telefone</th>
+                            <th>Tipo de Contrato</th>
+                            <th>Website</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="partners-table-body">
+                        <tr>
+                            <td colspan="6" class="text-center">Carregando parcerias...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="footer-col">
+                <h3>🐾 MagisPet</h3>
+                <p>Trabalho Interdisciplinar criação web</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Páginas</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="anuncios.html">Adotar</a></li>
+                    <li><a href="cadastros-animais.html">Cadastrar Animal</a></li>
+                    <li><a href="events.html">Eventos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li>📧 contato@magispet.com</li>
+                    <li>📍 Belo Horizonte, MG</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/parcerias.js"></script>
+</body>
+</html>

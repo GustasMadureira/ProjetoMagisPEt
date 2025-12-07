@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagisPet - Crie sua Conta</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/icone.png" type="imagem-icone">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container-header">
+            <div class="logo">
+                <h1><img src="assets/img/magispet prata 3.png" alt="MagisPet" class="logo-img"></h1>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="pag-sobre.html" class="nav-link">Sobre</a>
+                <a href="anuncios.html" class="nav-link">Adotar</a>
+                <a href="#" class="nav-link">Parcerias</a>
+                <a href="events.html" class="nav-link">Eventos</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn-login" onclick="location.href='login.html'">LOGIN</button>
+                <button class="btn-registrar">REGISTRAR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="login-page-container">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Crie sua Conta</h2>
+                <p>Junte-se a nós e ajude a encontrar um lar para um pet!</p>
+            </div>
+
+            <form class="login-form" id="registro-form">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required />
+                </div>
+
+                <button type="submit" class="btn-submit">CADASTRAR</button>
+
+                <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+                    Já tem uma conta? <a href="login.html" style="color: #751a24; font-weight: 600; text-decoration: none;">Faça Login</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="footer-col">
+                <h3>🐾 MagisPet</h3>
+                <p>Trabalho Interdisciplinar - Criação Web</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Páginas</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="anuncios.html">Adotar</a></li>
+                    <li><a href="#">Cadastrar Animal</a></li>
+                    <li><a href="events.html">Eventos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li>📧 contato@magispet.com</li>
+                    <li>📍 Belo Horizonte, MG</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

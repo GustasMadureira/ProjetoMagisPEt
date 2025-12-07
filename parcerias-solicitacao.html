@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja um Parceiro - MagisPet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/parcerias-solicitacao.css">
+    <link rel="icon" href="assets/img/icone.png" type="imagem-icone">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container-header">
+            <div class="logo">
+                <img src="assets/img/magispet prata 3.png" alt="MagisPet" class="logo-img" onclick="location.href='home.html'">
+            </div>
+            <nav class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="pag-sobre.html" class="nav-link">Sobre</a>
+                <a href="anuncios.html" class="nav-link">Adotar</a>
+                <a href="parcerias-solicitacao.html" class="nav-link active">Parcerias</a>
+                <a href="events.html" class="nav-link">Eventos</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-login" onclick="location.href='login.html'">LOGIN</button>
+                <button class="btn-registrar" onclick="location.href='cadastro-usuario.html'">REGISTRAR</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="parcerias-solicitacao-main">
+        <div class="container-form">
+            <h1>🤝 Seja um Parceiro</h1>
+            <p class="intro-text">
+                Junte-se a nós e faça a diferença na vida de centenas de animais! Ao se tornar um parceiro, sua marca ganha
+                visibilidade em nossa comunidade e apoia diretamente a nossa causa. Preencha o formulário abaixo para iniciar a
+                conversa.
+            </p>
+
+            <div id="alert-message" class="alert alert-success d-none" role="alert">
+                ✓ Solicitação enviada com sucesso! Nossa equipe analisará e entrará em contato em até 5 dias úteis.
+            </div>
+
+            <form id="form-solicitacao">
+                <div class="mb-3">
+                    <label for="nomeEmpresa" class="form-label">Nome da Empresa (*)</label>
+                    <input type="text" class="form-control" id="nomeEmpresa" placeholder="Digite o nome da sua empresa" required>
+                </div>
+                <div class="mb-3">
+                    <label for="seuNome" class="form-label">Seu Nome (*)</label>
+                    <input type="text" class="form-control" id="seuNome" placeholder="Quem é o responsável pelo contato?" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail de Contato (*)</label>
+                    <input type="email" class="form-control" id="email" placeholder="exemplo@suaempresa.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone (Opcional)</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="(XX) XXXXX-XXXX">
+                </div>
+                <div class="mb-3">
+                    <label for="mensagem" class="form-label">Mensagem (Opcional)</label>
+                    <textarea class="form-control" id="mensagem" rows="4" placeholder="Conte-nos um pouco sobre seu interesse em se tornar um parceiro."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitação de Parceria</button>
+            </form>
+            
+            <p class="footer-note">
+                Após o envio, nossa equipe analisará a solicitação e entrará em contato em até 5 dias úteis.
+            </p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="footer-col">
+                <h3>🐾 MagisPet</h3>
+                <p>Trabalho Interdisciplinar - Criação Web</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Páginas</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="anuncios.html">Adotar</a></li>
+                    <li><a href="#">Cadastrar Animal</a></li>
+                    <li><a href="events.html">Eventos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li>📧 contato@magispet.com</li>
+                    <li>📍 Belo Horizonte, MG</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/parcerias.js"></script>
+</body>
+</html>
