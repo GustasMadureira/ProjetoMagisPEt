@@ -74,7 +74,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
   background-color: rgba(255, 240, 219, 0.15);
-  color: #fff0db;
+  color: #ffffff;
 }
 
 .nav-link.active::after {
@@ -96,7 +96,7 @@ body {
 .btn-login,
 .btn-registrar {
   padding: 8px 20px;
-  border: 2px solid #fff0db;
+  border: 2px solid #ffffff;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
@@ -106,21 +106,21 @@ body {
 
 .btn-login {
   background-color: transparent;
-  color: #fff0db;
+  color: #ffffff;
 }
 
 .btn-login:hover {
-  background-color: #fff0db;
+  background-color: #ffffff;
   color: #751a24;
 }
 
 .btn-registrar {
-  background-color: #fff0db;
+  background-color: #ffffff;
   color: #751a24;
 }
 
 .btn-registrar:hover {
-  background-color: #f5d6b8;
+  background-color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -232,7 +232,7 @@ body {
 
 .btn-ver-mais {
   background-color: #751a24;
-  color: #fff0db;
+  color: #ffffff;
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
@@ -330,7 +330,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
-  background-color: #fff0db;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 25px;
@@ -462,7 +462,7 @@ body {
 
 /* ========== AVALIAÇÃO ========== */
 .secao-avaliacao {
-  border-top: 2px solid #fff0db;
+  border-top: 2px solid #ffffff;
   padding-top: 25px;
   margin-bottom: 30px;
 }
@@ -497,7 +497,7 @@ body {
 
 /* ========== COMENTÁRIOS ========== */
 .secao-comentarios {
-  border-top: 2px solid #fff0db;
+  border-top: 2px solid #ffffff;
   padding-top: 25px;
 }
 
@@ -549,7 +549,7 @@ body {
 
 .btn-enviar-comentario {
   background-color: #751a24;
-  color: #fff0db;
+  color: #ffffff;
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
