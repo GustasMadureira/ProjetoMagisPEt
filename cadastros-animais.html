@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Animais - MagisPet</title>
+    <link rel="stylesheet" href="assets/css/cadastros-animais.css" />
+    <link rel="icon" href="assets/img/icone.png" type="imagem-icone" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container-header">
+        <div class="logo">
+          <h1>
+            <img
+              src="assets/img/magispet prata 3.png"
+              alt="MagisPet"
+              class="logo-img"
+            />
+          </h1>
+        </div>
+        <nav class="nav-menu">
+          <a href="home.html" class="nav-link">Home</a>
+          <a href="pag-sobre.html" class="nav-link">Sobre</a>
+          <a href="anuncios.html" class="nav-link">Adotar</a>
+          <a href="#" class="nav-link">Parcerias</a>
+          <a href="events.html" class="nav-link active">Eventos</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-login">LOGIN</button>
+          <button class="btn-registrar">REGISTRAR</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container-cadastro">
+        <h2 class="titulo-pagina">🐾 Cadastro de Animais para Adoção</h2>
+
+        <!-- Formulário de Cadastro -->
+        <section class="secao-formulario">
+          <h3 class="subtitulo">Adicionar Novo Animal</h3>
+          <form id="form-animal" class="form-animal">
+            <div class="form-grid">
+              <!-- Coluna 1 -->
+              <div class="form-coluna">
+                <div class="form-group">
+                  <label for="nome">Nome do Animal *</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    required
+                    placeholder="Ex: Rex"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="raca">Raça *</label>
+                  <select id="raca" name="raca" required>
+                    <option value="">Selecione...</option>
+                    <option value="Indefinido">Indefinido (SRD)</option>
+                    <option value="Labrador">Labrador</option>
+                    <option value="Golden Retriever">Golden Retriever</option>
+                    <option value="Pastor Alemão">Pastor Alemão</option>
+                    <option value="Bulldog">Bulldog</option>
+                    <option value="Poodle">Poodle</option>
+                    <option value="Beagle">Beagle</option>
+                    <option value="Yorkshire">Yorkshire</option>
+                    <option value="Shih Tzu">Shih Tzu</option>
+                    <option value="Persa">Persa (Gato)</option>
+                    <option value="Siamês">Siamês (Gato)</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="temperamento">Temperamento *</label>
+                  <select id="temperamento" name="temperamento" required>
+                    <option value="">Selecione...</option>
+                    <option value="Dócil">Dócil</option>
+                    <option value="Brincalhão">Brincalhão</option>
+                    <option value="Calmo">Calmo</option>
+                    <option value="Agitado">Agitado</option>
+                    <option value="Tímido">Tímido</option>
+                    <option value="Sociável">Sociável</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="idade">Idade *</label>
+                  <input
+                    type="text"
+                    id="idade"
+                    name="idade"
+                    required
+                    placeholder="Ex: 2A, 6M, 3 anos"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="sexo">Sexo *</label>
+                  <select id="sexo" name="sexo" required>
+                    <option value="">Selecione...</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Coluna 2 -->
+              <div class="form-coluna">
+                <div class="form-group">
+                  <label for="porte">Porte do Animal *</label>
+                  <select id="porte" name="porte" required>
+                    <option value="">Selecione...</option>
+                    <option value="Pequeno">Pequeno (até 10kg)</option>
+                    <option value="Médio">Médio (10-25kg)</option>
+                    <option value="Grande">Grande (acima de 25kg)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Vacinado? *</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input
+                        type="radio"
+                        name="vacinado"
+                        value="Sim"
+                        required
+                      />
+                      Sim
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="vacinado" value="Não" /> Não
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Castrado? *</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input
+                        type="radio"
+                        name="castrado"
+                        value="Sim"
+                        required
+                      />
+                      Sim
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="castrado" value="Não" /> Não
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Vermifugado? *</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input
+                        type="radio"
+                        name="vermifugado"
+                        value="Sim"
+                        required
+                      />
+                      Sim
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="vermifugado" value="Não" /> Não
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="imagem">URL da Imagem</label>
+                  <input
+                    type="url"
+                    id="imagem"
+                    name="imagem"
+                    placeholder="https://exemplo.com/foto.jpg"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Resumo (linha completa) -->
+            <div class="form-group form-group-full">
+              <label for="resumo">Resumo sobre o Animal</label>
+              <textarea
+                id="resumo"
+                name="resumo"
+                rows="4"
+                placeholder="Descreva características, comportamento, história..."
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-salvar" id="btn-salvar">
+                💾 Cadastrar Animal
+              </button>
+              <button type="button" class="btn-cancelar" id="btn-cancelar">
+                ❌ Limpar Formulário
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Lista de Animais Cadastrados -->
+        <section class="secao-lista">
+          <h3 class="subtitulo">Animais Cadastrados</h3>
+          <div class="filtros">
+            <input
+              type="text"
+              id="buscar"
+              placeholder="🔍 Buscar por nome, raça ou temperamento..."
+              class="input-busca"
+            />
+          </div>
+          <div id="lista-animais" class="lista-animais">
+            <p class="loading">Carregando animais...</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="footer-col">
+          <h3>🐾 MagisPet</h3>
+          <p></p>
+        </div>
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Adotar</a></li>
+            <li><a href="cadastro-animais.html">Cadastrar Animal</a></li>
+            <li><a href="#">Ongs</a></li>
+            <li><a href="#">Eventos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li>📧 contato@magispet.com</li>
+            <li>📍 Belo Horizonte, MG</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MagisPet. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="/assets/js/cadastro-animias.js"></script>
+  </body>
+</html>

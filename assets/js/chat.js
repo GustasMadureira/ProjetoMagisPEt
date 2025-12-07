@@ -1,283 +1,19 @@
-
 const API_URL = 'https://cc20c04c-918d-4941-adea-327d532368d2-00-3p832i6nen4dl.riker.replit.dev';
 
-
-
+/* ===========================================================
+   FUNÇÕES AUXILIARES
+   =========================================================== */
 
 function getURLParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   const value = urlParams.get(param);
+  console.log(`📌 Parâmetro '${param}' da URL:`, value);
   return value ? parseInt(value) : null;
 }
 
-
-function getPaginaAtual() {
-  const path = window.location.pathname;
-  console.log('=== Detectando página ===');
-  console.log('Caminho completo:', path);
-  
-  if (path.includes('anuncios.html')) {
-    console.log('Página detectada: ANUNCIOS');
-    return 'anuncios';
-  }
-  if (path.includes('perfil-animal.html')) {
-    console.log('Página detectada: PERFIL');
-    return 'perfil';
-  }
-  if (path.includes('chat.html')) {
-    console.log('Página detectada: CHAT');
-    return 'chat';
-  }
-  
-  console.log('Página NÃO reconhecida');
-  return null;
-}
-
-
-
-const Anuncios = {
-  container: null,
-
-  init() {
-    console.log('=== ANÚNCIOS: Iniciando ===');
-    this.container = document.getElementById('animais-container');
-    
-    if (!this.container) {
-      console.error('Container animais-container não encontrado!');
-      return;
-    }
-
-    console.log('Container encontrado, carregando animais...');
-    this.carregarAnimais();
-    this.configurarFiltros();
-  },
-
-  async carregarAnimais() {
-    try {
-      const response = await fetch(`${API_URL}/animais`);
-      
-      if (!response.ok) {
-        throw new Error('Erro ao carregar animais');
-      }
-
-      const animais = await response.json();
-      console.log('Animais carregados:', animais);
-      
-      this.renderizarAnimais(animais);
-    } catch (error) {
-      console.error('Erro ao carregar animais:', error);
-      this.container.innerHTML = `
-        <div class="col-12 text-center">
-          <p class="text-danger">Erro ao carregar os animais. Tente novamente mais tarde.</p>
-        </div>
-      `;
-    }
-  },
-
-  renderizarAnimais(animais) {
-    if (animais.length === 0) {
-      this.container.innerHTML = `
-        <div class="col-12 text-center">
-          <p class="text-muted">Nenhum animal disponível para adoção no momento.</p>
-        </div>
-      `;
-      return;
-    }
-
-    this.container.innerHTML = '';
-
-    animais.forEach(animal => {
-      const card = this.criarCardAnimal(animal);
-      this.container.appendChild(card);
-    });
-  },
-
-  criarCardAnimal(animal) {
-    const col = document.createElement('div');
-    col.className = 'col-md-6 col-lg-4';
-
-    const vacinadoIcon = animal.vacinado ? '✅' : '❌';
-    const castradoIcon = animal.castrado ? '✅' : '❌';
-
-    col.innerHTML = `
-      <div class="card h-100 shadow-sm animal-card" style="cursor: pointer; transition: transform 0.3s ease;">
-        <img src="${animal.foto}" class="card-img-top" alt="${animal.nome}" 
-             style="height: 250px; object-fit: cover;"
-             onerror="this.src='assets/img/placeholder.jpg'">
-        <div class="card-body d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-start mb-2">
-            <h5 class="card-title fw-bold mb-0" style="color: #751a24;">${animal.nome}</h5>
-            <span class="badge" style="background-color: #751a24;">${animal.tipo}</span>
-          </div>
-          
-          <p class="card-text text-muted small mb-2">
-            <strong>Raça:</strong> ${animal.raca}<br>
-            <strong>Idade:</strong> ${animal.idade}<br>
-            <strong>Porte:</strong> ${animal.porte || 'Não informado'}
-          </p>
-
-          <div class="mb-3">
-            <span class="badge bg-success me-1">${vacinadoIcon} Vacinado</span>
-            <span class="badge bg-info text-dark">${castradoIcon} Castrado</span>
-          </div>
-
-          <p class="card-text text-muted flex-grow-1" style="font-size: 0.9rem;">
-            ${animal.descricao ? animal.descricao.substring(0, 80) + '...' : 'Sem descrição'}
-          </p>
-
-          <button class="btn w-100 mt-auto btn-ver-perfil" 
-                  style="background-color: #751a24; color: white; border: none;"
-                  data-animal-id="${animal.id}">
-            Ver perfil completo
-          </button>
-        </div>
-      </div>
-    `;
-
-    
-    const btnPerfil = col.querySelector('.btn-ver-perfil');
-    btnPerfil.addEventListener('click', (e) => {
-      e.preventDefault();
-      const animalId = e.target.dataset.animalId;
-      console.log('Clicou para ver perfil do animal ID:', animalId);
-      window.location.href = `perfil-animal.html?animal=${animalId}`;
-    });
-
-    
-    const cardElement = col.querySelector('.animal-card');
-    cardElement.addEventListener('mouseenter', () => {
-      cardElement.style.transform = 'translateY(-10px)';
-      cardElement.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
-    });
-    
-    cardElement.addEventListener('mouseleave', () => {
-      cardElement.style.transform = 'translateY(0)';
-      cardElement.style.boxShadow = '';
-    });
-
-    return col;
-  },
-
-  configurarFiltros() {
-    const btnFiltro = document.querySelector('.filter-bar button');
-    if (btnFiltro) {
-      btnFiltro.addEventListener('click', () => this.aplicarFiltros());
-    }
-  },
-
-  aplicarFiltros() {
-    
-    console.log('Filtros aplicados');
-  }
-};
-
-
-
-const PerfilAnimal = {
-  animalId: null,
-
-  init() {
-    console.log('=== PERFIL ANIMAL: Iniciando ===');
-    this.animalId = getURLParam('animal');
-    console.log('Animal ID da URL:', this.animalId);
-    
-    if (!this.animalId) {
-      console.error('Animal ID não encontrado na URL!');
-      alert('Animal não encontrado!');
-      window.location.href = 'anuncios.html';
-      return;
-    }
-
-    console.log('Carregando dados do animal ID:', this.animalId);
-    this.carregarAnimal();
-  },
-
-  async carregarAnimal() {
-    console.log('=== Carregando animal da API ===');
-    console.log('URL da requisição:', `${API_URL}/animais/${this.animalId}`);
-    
-    try {
-      const response = await fetch(`${API_URL}/animais/${this.animalId}`);
-      console.log('Status da resposta:', response.status);
-      
-      if (!response.ok) {
-        throw new Error('Animal não encontrado');
-      }
-
-      const animal = await response.json();
-      console.log('Animal carregado com sucesso:', animal);
-      
-      this.exibirAnimal(animal);
-    } catch (error) {
-      console.error('ERRO ao carregar animal:', error);
-      alert('Erro ao carregar informações do animal.');
-      window.location.href = 'anuncios.html';
-    }
-  },
-
-  exibirAnimal(animal) {
-    
-    document.title = `${animal.nome} - MagisPet`;
-
-    
-    const foto = document.getElementById('animal-foto');
-    if (foto) {
-      foto.src = animal.foto;
-      foto.alt = animal.nome;
-    }
-
-    
-    this.atualizarElemento('animal-nome', animal.nome);
-    this.atualizarElemento('animal-tipo', animal.tipo);
-    
-    
-    const porteBadge = document.getElementById('animal-porte');
-    if (porteBadge) {
-      porteBadge.textContent = animal.porte || 'Não informado';
-      porteBadge.className = 'badge text-dark';
-      
-      if (animal.porte) {
-        if (animal.porte.toLowerCase() === 'pequeno') {
-          porteBadge.classList.add('bg-info');
-        } else if (animal.porte.toLowerCase() === 'medio') {
-          porteBadge.classList.add('bg-warning');
-        } else {
-          porteBadge.classList.add('bg-success');
-        }
-      }
-    }
-
-   
-    this.atualizarElemento('animal-raca', animal.raca || 'Não informado');
-    this.atualizarElemento('animal-idade', animal.idade || 'Não informado');
-    this.atualizarElemento('animal-sexo', animal.sexo || 'Não informado');
-    this.atualizarElemento('animal-porte-texto', animal.porte || 'Não informado');
-    this.atualizarElemento('animal-vacinado', animal.vacinado ? '✅ Sim' : '❌ Não');
-    this.atualizarElemento('animal-castrado', animal.castrado ? '✅ Sim' : '❌ Não');
-    this.atualizarElemento('animal-descricao', animal.descricao || 'Nenhuma descrição disponível.');
-
-    
-    const btnChat = document.getElementById('btn-chat');
-    if (btnChat) {
-      console.log('Configurando botão de chat para animal ID:', this.animalId);
-      btnChat.addEventListener('click', () => {
-        console.log('Botão clicado! Redirecionando para chat do animal:', this.animalId);
-        window.location.href = `chat.html?animal=${this.animalId}`;
-      });
-    } else {
-      console.error('Botão btn-chat não encontrado!');
-    }
-  },
-
-  atualizarElemento(id, conteudo) {
-    const elemento = document.getElementById(id);
-    if (elemento) {
-      elemento.textContent = conteudo;
-    }
-  }
-};
-
-
+/* ===========================================================
+   MÓDULO: CHAT
+   =========================================================== */
 
 const Chat = {
   mensagens: [],
@@ -291,10 +27,13 @@ const Chat = {
   intervalId: null,
 
   init() {
+    console.log('=== CHAT: Iniciando ===');
+    
     this.animalAtualId = getURLParam('animal');
     
     if (!this.animalAtualId) {
-      this.animalAtualId = 1; 
+      console.warn('⚠️ Animal ID não fornecido, usando ID padrão: 1');
+      this.animalAtualId = 1;
     }
 
     this.messageList = document.getElementById('message-list');
@@ -302,47 +41,133 @@ const Chat = {
     this.messageInput = document.getElementById('message-input');
     this.sendButton = document.getElementById('send-button');
 
-    if (!this.messageList || !this.messageForm) return;
+    if (!this.messageList || !this.messageForm) {
+      console.error('❌ Elementos do chat não encontrados!');
+      return;
+    }
 
-    console.log('Animal ID atual:', this.animalAtualId);
+    console.log('✅ Animal ID atual:', this.animalAtualId);
     
+    // Carrega informações do animal primeiro
     this.carregarInfoAnimal();
+    
+    // Depois carrega as mensagens
     this.carregarMensagens();
+    
+    // Configura eventos do formulário
     this.configurarEventos();
     
-    
+    // Atualiza mensagens a cada 5 segundos
     this.intervalId = setInterval(() => this.carregarMensagens(), 5000);
   },
 
-  
+  /* ===========================================================
+     CARREGAR INFORMAÇÕES DO ANIMAL
+     =========================================================== */
 
   async carregarInfoAnimal() {
+    console.log('=== Carregando informações do animal ===');
+    console.log('🆔 Animal ID:', this.animalAtualId);
+
     try {
-      const response = await fetch(`${API_URL}/animais/${this.animalAtualId}`);
+      // TENTATIVA 1: Buscar animal específico
+      const urlEspecifico = `${API_URL}/animais/${this.animalAtualId}`;
+      console.log('📡 Tentando buscar em:', urlEspecifico);
+      
+      let response = await fetch(urlEspecifico);
+      console.log('📡 Status:', response.status);
+      
+      let animal = null;
       
       if (response.ok) {
-        const animal = await response.json();
+        animal = await response.json();
+        console.log('✅ Animal encontrado (endpoint específico):', animal);
+      } else {
+        console.warn('⚠️ Endpoint específico falhou, buscando todos os animais...');
         
-        const nomeElement = document.querySelector('.chat-header-info h2 strong');
-        if (nomeElement && animal.nome) {
-          nomeElement.textContent = animal.nome;
+        // TENTATIVA 2: Buscar todos e filtrar
+        const urlTodos = `${API_URL}/animais`;
+        console.log('📡 Buscando em:', urlTodos);
+        
+        response = await fetch(urlTodos);
+        
+        if (!response.ok) {
+          throw new Error(`Erro HTTP: ${response.status}`);
         }
         
-        const avatarElement = document.querySelector('.chat-avatar');
-        if (avatarElement && animal.foto) {
-          avatarElement.src = animal.foto;
-          avatarElement.alt = animal.nome;
+        const data = await response.json();
+        console.log('📦 Dados recebidos:', data);
+        
+        // Identifica estrutura dos dados
+        let todosAnimais = [];
+        if (Array.isArray(data)) {
+          todosAnimais = data;
+        } else if (data.animais && Array.isArray(data.animais)) {
+          todosAnimais = data.animais;
+        }
+        
+        console.log('📋 Total de animais:', todosAnimais.length);
+        console.log('🔍 Procurando animal com ID:', this.animalAtualId);
+        
+        // Busca o animal pelo ID
+        animal = todosAnimais.find(a => a.id == this.animalAtualId);
+        
+        if (animal) {
+          console.log('✅ Animal encontrado na lista:', animal);
+        } else {
+          console.error('❌ Animal não encontrado!');
+          console.log('📋 IDs disponíveis:', todosAnimais.map(a => a.id));
         }
       }
+      
+      if (animal) {
+        this.exibirInfoAnimal(animal);
+      } else {
+        console.warn('⚠️ Usando informações padrão do animal');
+      }
+      
     } catch (error) {
-      console.log('Usando informações padrão do animal');
+      console.error('❌ Erro ao carregar informações do animal:', error);
+      console.log('ℹ️ Usando informações padrão do HTML');
     }
   },
 
-  
+  exibirInfoAnimal(animal) {
+    console.log('=== Exibindo informações do animal no chat ===');
+    
+    // Atualiza o nome do animal no cabeçalho
+    const nomeElement = document.querySelector('.chat-header-info h2 strong');
+    if (nomeElement) {
+      nomeElement.textContent = animal.nome;
+      console.log('✅ Nome atualizado:', animal.nome);
+    } else {
+      console.warn('⚠️ Elemento de nome não encontrado');
+    }
+    
+    // Atualiza o avatar/foto do animal
+    const avatarElement = document.querySelector('.chat-avatar');
+    if (avatarElement) {
+      const fotoUrl = animal.imagem || animal.foto || 'assets/img/cachorro.jpg';
+      avatarElement.src = fotoUrl;
+      avatarElement.alt = animal.nome;
+      console.log('✅ Avatar atualizado:', fotoUrl);
+    } else {
+      console.warn('⚠️ Elemento de avatar não encontrado');
+    }
+    
+    // Atualiza o título da página
+    document.title = `Chat com ${animal.nome} - MagisPet`;
+    console.log('✅ Título da página atualizado');
+  },
+
+  /* ===========================================================
+     CRUD DE MENSAGENS
+     =========================================================== */
 
   async criarMensagem(mensagemTexto) {
     try {
+      console.log('📤 Criando nova mensagem...');
+      
       const novaMensagem = {
         animal_id: this.animalAtualId,
         usuario_id: this.usuarioAtualId,
@@ -350,18 +175,26 @@ const Chat = {
         data_criacao: new Date().toISOString()
       };
 
+      console.log('📝 Dados da mensagem:', novaMensagem);
+
       const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(novaMensagem)
       });
 
-      if (!response.ok) throw new Error('Erro ao criar mensagem');
+      console.log('📡 Status:', response.status);
+
+      if (!response.ok) {
+        throw new Error('Erro ao criar mensagem');
+      }
 
       const mensagemCriada = await response.json();
+      console.log('✅ Mensagem criada:', mensagemCriada);
+      
       return mensagemCriada;
     } catch (error) {
-      console.error('Erro ao criar mensagem:', error);
+      console.error('❌ Erro ao criar mensagem:', error);
       alert('Erro ao enviar mensagem. Tente novamente.');
       return null;
     }
@@ -369,23 +202,28 @@ const Chat = {
 
   async carregarMensagens() {
     try {
-      console.log('Carregando mensagens...');
+      console.log('📥 Carregando mensagens...');
+      
       const response = await fetch(`${API_URL}/chat`);
       
-      if (!response.ok) throw new Error('Erro ao carregar mensagens');
+      if (!response.ok) {
+        throw new Error('Erro ao carregar mensagens');
+      }
 
       const data = await response.json();
-      console.log('Dados recebidos:', data);
+      console.log('📦 Dados recebidos:', data);
       
+      // Identifica estrutura dos dados
       this.mensagens = Array.isArray(data) ? data : data.chat || [];
-      console.log('Total de mensagens:', this.mensagens.length);
+      console.log('📋 Total de mensagens:', this.mensagens.length);
       
-      this.mensagens = this.mensagens.filter(msg => msg.animal_id === this.animalAtualId);
-      console.log('Mensagens filtradas (animal_id=' + this.animalAtualId + '):', this.mensagens.length);
+      // Filtra mensagens do animal atual
+      this.mensagens = this.mensagens.filter(msg => msg.animal_id == this.animalAtualId);
+      console.log('✅ Mensagens filtradas (animal_id=' + this.animalAtualId + '):', this.mensagens.length);
       
       this.renderizarMensagens();
     } catch (error) {
-      console.error('Erro ao carregar mensagens:', error);
+      console.error('❌ Erro ao carregar mensagens:', error);
       if (this.messageList) {
         this.messageList.innerHTML = '<p style="text-align: center; color: #999;">Erro ao carregar mensagens.</p>';
       }
@@ -394,7 +232,8 @@ const Chat = {
 
   async atualizarMensagem(chatId, novoTexto) {
     try {
-      console.log('Atualizando mensagem ID:', chatId, 'Novo texto:', novoTexto);
+      console.log('✏️ Atualizando mensagem ID:', chatId);
+      console.log('📝 Novo texto:', novoTexto);
       
       const mensagemAtualizada = {
         mensagem: novoTexto,
@@ -402,7 +241,7 @@ const Chat = {
       };
 
       const url = `${API_URL}/chat/${chatId}`;
-      console.log('URL da requisição:', url);
+      console.log('📡 URL:', url);
 
       const response = await fetch(url, {
         method: 'PATCH',
@@ -410,15 +249,18 @@ const Chat = {
         body: JSON.stringify(mensagemAtualizada)
       });
 
-      console.log('Status da resposta:', response.status);
+      console.log('📡 Status:', response.status);
 
-      if (!response.ok) throw new Error('Erro ao atualizar mensagem');
+      if (!response.ok) {
+        throw new Error('Erro ao atualizar mensagem');
+      }
 
       const resultado = await response.json();
-      console.log('Mensagem atualizada com sucesso:', resultado);
+      console.log('✅ Mensagem atualizada:', resultado);
+      
       return resultado;
     } catch (error) {
-      console.error('Erro ao atualizar mensagem:', error);
+      console.error('❌ Erro ao atualizar mensagem:', error);
       alert('Erro ao editar mensagem. Tente novamente.');
       return null;
     }
@@ -426,33 +268,40 @@ const Chat = {
 
   async deletarMensagem(chatId) {
     try {
-      console.log('Deletando mensagem ID:', chatId);
+      console.log('🗑️ Deletando mensagem ID:', chatId);
       
       const url = `${API_URL}/chat/${chatId}`;
-      console.log('URL da requisição:', url);
+      console.log('📡 URL:', url);
       
       const response = await fetch(url, { method: 'DELETE' });
+      console.log('📡 Status:', response.status);
 
-      console.log('Status da resposta:', response.status);
+      if (!response.ok) {
+        throw new Error('Erro ao deletar mensagem');
+      }
 
-      if (!response.ok) throw new Error('Erro ao deletar mensagem');
-
-      console.log('Mensagem deletada com sucesso');
+      console.log('✅ Mensagem deletada com sucesso');
       return true;
     } catch (error) {
-      console.error('Erro ao deletar mensagem:', error);
+      console.error('❌ Erro ao deletar mensagem:', error);
       alert('Erro ao excluir mensagem. Tente novamente.');
       return false;
     }
   },
 
-  
+  /* ===========================================================
+     RENDERIZAÇÃO
+     =========================================================== */
 
   renderizarMensagens() {
     this.messageList.innerHTML = '';
 
     if (this.mensagens.length === 0) {
-      this.messageList.innerHTML = '<p style="text-align: center; color: #999; margin-top: 20px;">Nenhuma mensagem ainda. Seja o primeiro a conversar!</p>';
+      this.messageList.innerHTML = `
+        <p style="text-align: center; color: #999; margin-top: 20px;">
+          Nenhuma mensagem ainda. Seja o primeiro a conversar!
+        </p>
+      `;
       return;
     }
 
@@ -461,6 +310,7 @@ const Chat = {
       this.messageList.appendChild(messageDiv);
     });
 
+    // Scroll para o final
     this.messageList.scrollTop = this.messageList.scrollHeight;
   },
 
@@ -474,6 +324,7 @@ const Chat = {
     messageParagraph.textContent = msg.mensagem;
     messageDiv.appendChild(messageParagraph);
 
+    // Adiciona botões de editar/excluir apenas para mensagens do usuário atual
     if (msg.usuario_id === this.usuarioAtualId) {
       const actionsDiv = document.createElement('div');
       actionsDiv.className = 'message-actions';
@@ -481,18 +332,18 @@ const Chat = {
       const editButton = document.createElement('button');
       editButton.className = 'btn-edit';
       editButton.title = 'Editar mensagem';
+      editButton.innerHTML = '';
       editButton.onclick = (e) => {
         e.preventDefault();
-        console.log('Editando mensagem ID:', msgId);
         this.iniciarEdicao(msgId, msg.mensagem);
       };
 
       const deleteButton = document.createElement('button');
       deleteButton.className = 'btn-delete';
       deleteButton.title = 'Excluir mensagem';
+      deleteButton.innerHTML = '';
       deleteButton.onclick = (e) => {
         e.preventDefault();
-        console.log('Excluindo mensagem ID:', msgId);
         this.confirmarExclusao(msgId);
       };
 
@@ -504,20 +355,27 @@ const Chat = {
     return messageDiv;
   },
 
-  
+  /* ===========================================================
+     EDIÇÃO E EXCLUSÃO
+     =========================================================== */
 
   iniciarEdicao(chatId, mensagemTexto) {
+    console.log(' Iniciando edição da mensagem:', chatId);
+    
     this.editandoMensagemId = chatId;
     this.messageInput.value = mensagemTexto;
     this.messageInput.focus();
     
+    // Muda visual do botão
     this.sendButton.innerHTML = 'Salvar ✓';
     this.sendButton.style.backgroundColor = '#007bff';
     
+    // Remove destaque de outras mensagens
     document.querySelectorAll('.message').forEach(msg => {
       msg.classList.remove('editing');
     });
     
+    // Destaca mensagem sendo editada
     const mensagemEditando = document.querySelector(`[data-chat-id="${chatId}"]`);
     if (mensagemEditando) {
       mensagemEditando.classList.add('editing');
@@ -526,11 +384,14 @@ const Chat = {
   },
 
   cancelarEdicao() {
+    console.log('❌ Cancelando edição');
+    
     this.editandoMensagemId = null;
     this.messageInput.value = '';
     this.sendButton.innerHTML = 'Enviar <i class="fas fa-paper-plane"></i>';
     this.sendButton.style.backgroundColor = '#751a24';
     
+    // Remove destaque das mensagens
     document.querySelectorAll('.message').forEach(msg => {
       msg.classList.remove('editing');
       msg.style.opacity = '1';
@@ -549,10 +410,12 @@ const Chat = {
     if (sucesso) {
       const mensagemElement = document.querySelector(`[data-chat-id="${chatId}"]`);
       if (mensagemElement) {
+        // Animação de saída
         mensagemElement.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         mensagemElement.style.opacity = '0';
         mensagemElement.style.transform = 'translateX(20px)';
         
+        // Recarrega mensagens após animação
         setTimeout(() => {
           this.carregarMensagens();
         }, 300);
@@ -560,9 +423,12 @@ const Chat = {
     }
   },
 
-  
+  /* ===========================================================
+     EVENTOS DO FORMULÁRIO
+     =========================================================== */
 
   configurarEventos() {
+    // Submit do formulário
     this.messageForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
@@ -573,12 +439,14 @@ const Chat = {
         return;
       }
 
+      // Desabilita botão durante envio
       this.sendButton.disabled = true;
       const textoOriginal = this.sendButton.innerHTML;
       this.sendButton.innerHTML = 'Enviando...';
 
       try {
         if (this.editandoMensagemId) {
+          // Modo edição
           const sucesso = await this.atualizarMensagem(this.editandoMensagemId, mensagemTexto);
           
           if (sucesso) {
@@ -587,6 +455,7 @@ const Chat = {
             setTimeout(() => this.carregarMensagens(), 500);
           }
         } else {
+          // Modo nova mensagem
           const novaMensagem = await this.criarMensagem(mensagemTexto);
           
           if (novaMensagem) {
@@ -595,7 +464,7 @@ const Chat = {
           }
         }
       } catch (error) {
-        console.error('Erro ao processar mensagem:', error);
+        console.error('❌ Erro ao processar mensagem:', error);
         alert('Erro ao processar mensagem. Tente novamente.');
       } finally {
         this.sendButton.disabled = false;
@@ -603,6 +472,7 @@ const Chat = {
       }
     });
 
+    // Tecla ESC cancela edição
     this.messageInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.editandoMensagemId) {
         this.cancelarEdicao();
@@ -610,36 +480,28 @@ const Chat = {
     });
   },
 
+  /* ===========================================================
+     LIMPEZA
+     =========================================================== */
+
   destruir() {
+    console.log('🧹 Limpando intervalo de atualização');
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
   }
 };
 
-
+/* ===========================================================
+   INICIALIZAÇÃO
+   =========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const paginaAtual = getPaginaAtual();
-  
-  console.log('Página atual:', paginaAtual);
-
-  switch(paginaAtual) {
-    case 'anuncios':
-      Anuncios.init();
-      break;
-    case 'perfil':
-      PerfilAnimal.init();
-      break;
-    case 'chat':
-      Chat.init();
-      break;
-    default:
-      console.log('Página não reconhecida');
-  }
+  console.log('🚀 DOM carregado, iniciando chat...');
+  Chat.init();
 });
 
-
+// Limpa intervalos ao sair da página
 window.addEventListener('beforeunload', () => {
   Chat.destruir();
 });

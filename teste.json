@@ -1,0 +1,218 @@
+{
+  "animais": [
+    {
+      "id": 1,
+      "nome": "Rex",
+      "raca": "Vira-lata",
+      "temperamento": "Dócil",
+      "idade": "7A",
+      "sexo": "Macho",
+      "porte": "Grande",
+      "vacinado": "Sim",
+      "castrado": "Sim",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1587300003388-59208cc962cb",
+      "resumo": "Rex é um cachorro muito carinhoso e tranquilo, ótimo para famílias."
+    },
+    {
+      "id": 2,
+      "nome": "Mia",
+      "raca": "Siamês",
+      "temperamento": "Carinhosa",
+      "idade": "2A",
+      "sexo": "Fêmea",
+      "porte": "Pequeno",
+      "vacinado": "Sim",
+      "castrado": "Sim",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba",
+      "resumo": "Mia é uma gatinha linda e muito dócil, perfeita para apartamentos."
+    },
+    {
+      "id": 3,
+      "nome": "Bob",
+      "raca": "Labrador",
+      "temperamento": "Brincalhão",
+      "idade": "3A",
+      "sexo": "Macho",
+      "porte": "Grande",
+      "vacinado": "Sim",
+      "castrado": "Não",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1552053831-71594a27632d",
+      "resumo": "Bob é super ativo e adora brincar no parque, ideal para famílias ativas."
+    },
+    {
+      "id": 4,
+      "nome": "Luna",
+      "raca": "Persa",
+      "temperamento": "Calma",
+      "idade": "4A",
+      "sexo": "Fêmea",
+      "porte": "Pequeno",
+      "vacinado": "Sim",
+      "castrado": "Sim",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1574158622682-e40e69881006",
+      "resumo": "Luna é tranquila e elegante, adora um carinho e um lugar quentinho para dormir."
+    },
+    {
+      "id": 5,
+      "nome": "Thor",
+      "raca": "Pastor Alemão",
+      "temperamento": "Protetor",
+      "idade": "5A",
+      "sexo": "Macho",
+      "porte": "Grande",
+      "vacinado": "Sim",
+      "castrado": "Sim",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1568572933382-74d440642117",
+      "resumo": "Thor é leal e protetor, excelente cão de guarda e companheiro da família."
+    },
+    {
+      "id": 6,
+      "nome": "Mel",
+      "raca": "Golden Retriever",
+      "temperamento": "Amigável",
+      "idade": "1A",
+      "sexo": "Fêmea",
+      "porte": "Médio",
+      "vacinado": "Sim",
+      "castrado": "Não",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1633722715463-d30f4f325e24",
+      "resumo": "Mel é uma filhotona cheia de energia, adora crianças e é super sociável."
+    },
+    {
+      "id": 7,
+      "nome": "Mingau",
+      "raca": "Vira-lata",
+      "temperamento": "Independente",
+      "idade": "6M",
+      "sexo": "Macho",
+      "porte": "Pequeno",
+      "vacinado": "Sim",
+      "castrado": "Não",
+      "vermifugado": "Sim",
+      "imagem": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d",
+      "resumo": "Mingau é um gatinho jovem e curioso, gosta de explorar e brincar com bolinhas."
+    }
+  ],
+  "chat": [
+    {
+      "id": "1",
+      "animal_id": 1,
+      "usuario_id": 1,
+      "mensagem": "Tenho interesse em adotar o Rex, ele está disponível? Update",
+      "data_criacao": "2025-10-25T10:30:00.000Z",
+      "data_atualizacao": "2025-11-13T23:40:45.178Z"
+    },
+    {
+      "id": "2",
+      "animal_id": 1,
+      "usuario_id": 2,
+      "mensagem": "Oi! Sim, ele está disponível para adoção.",
+      "data_criacao": "2025-10-25T10:35:00.000Z"
+    },
+    {
+      "id": "3",
+      "animal_id": 2,
+      "usuario_id": 1,
+      "mensagem": "A Mia é carinhosa?",
+      "data_criacao": "2025-10-25T11:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "animal_id": 2,
+      "usuario_id": 2,
+      "mensagem": "Sim, ela é muito dócil e adora carinho!",
+      "data_criacao": "2025-10-25T11:05:00.000Z"
+    },
+    {
+      "id": "5",
+      "animal_id": 3,
+      "usuario_id": 1,
+      "mensagem": "O Bob precisa de muito espaço?",
+      "data_criacao": "2025-10-25T12:00:00.000Z"
+    }
+  ],
+  "eventos": [
+    {
+      "id": "d168",
+      "nome-evento": "Campanha de Vacinação",
+      "data-evento": "2025-11-20",
+      "hora-evento": "10:00 ás 16:00",
+      "local-evento": "Centro Comunitário Vila Nova",
+      "descricao-Comp": "Campanha de vacinação gratuita para cães e gatos em parceria com ONGs locais e veterinários voluntários. Serão aplicadas vacinas antirrábica, V9, V10 e outras essenciais para a saúde do seu pet. Traga a carteira de vacinação e documento de identidade.",
+      "descricao-curta": "Projeta o seu Pet com vacinas gratuitas!",
+      "link-banner": "https://picsum.photos/id/237/400/250"
+    },
+    {
+      "nome-evento": null,
+      "data-evento": null,
+      "hora-evento": null,
+      "local-evento": null,
+      "descricao-curta": null,
+      "descricao-comp": null,
+      "link-banner": null,
+      "id": "b59f"
+    },
+    {
+      "id": "1fba",
+      "nome-evento": "Encontro de Adoção Consciente",
+      "data-evento": "2025-11-25",
+      "hora-evento": "10:00 ás 16:00",
+      "local-evento": "Shopping Minas Boulevard",
+      "descricao-comp": "Traga sua família para conhecer animais incríveis e adotar com responsabilidade. Psicólogos e veterinários estarão presentes para orientar sobre a escolha ideal do pet para seu perfil familiar. Todos os animais estão castrados, vermifugados e com vacinas em dia.",
+      "descricao-curta": "Adote com amor e responsabilidade!",
+      "link-banner": "https://picsum.photos/id/1025/400/250"
+    },
+    {
+      "id": "4147",
+      "nome-evento": "Dia do Pet na Praça",
+      "data-evento": "2025-12-02",
+      "hora-evento": "10:00 ás 18:00",
+      "local-evento": "Praça da Liberdade",
+      "descricao-comp": "Atividades recreativas, concurso de fantasias, brindes e muito carinho para os bichinhos! Haverá banho e tosa gratuitos (vagas limitadas), distribuição de petiscos, serviço de identificação por microchip e muito mais. Traga seu pet e participe!",
+      "descricao-curta": "Adote com amor e responsabilidade!",
+      "link-banner": "https://picsum.photos/id/1062/400/250"
+    }
+  ],
+  "eventsData": [
+    {
+      "id": "1",
+      "organizer": "ONG Patinhas Felizes",
+      "date": "2 dias atrás",
+      "title": "Feira de Adoção - Shopping Center",
+      "description": "Grande feira de adoção com mais de 50 pets disponíveis! Venha nos visitar e encontre seu novo melhor amigo. Teremos cães e gatos de todas as idades esperando por você.",
+      "image": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&amp;h=400&amp;fit=crop",
+      "location": "Shopping Belo Horizonte",
+      "time": "14:00 - 18:00",
+      "ratings": [],
+      "comments": []
+    }
+  ],
+  "propagandas": [
+    {
+      "nome": "xxxx",
+      "email": "xxxx",
+      "telefone": "xxxx-xxxx",
+      "categoria": "xxxx",
+      "sobre_anuncio": "xxxx",
+      "imagem": "xxxx",
+      "id": "ec25"
+    }
+  ],
+  "parcerias": [
+    {
+      "id": "1",
+      "nomeEmpresa": "PetLove",
+      "tipoParceria": "Pet Shop",
+      "telefone": "(11) 98765-4321",
+      "tipoContrato": "Contrato Anual",
+      "website": "https://www.petlove.com.br",
+      "urlLogo": "valor"
+    }
+  ]
+}
