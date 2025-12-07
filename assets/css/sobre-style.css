@@ -43,7 +43,7 @@ body {
 }
 
 .logo h1 {
-  color: #fff0db;
+  color: #ffffff;
   font-size: 1.8rem;
   font-weight: bold;
   cursor: pointer;
@@ -61,7 +61,7 @@ body {
 }
 
 .nav-link {
-  color: #fff0db;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -74,7 +74,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
   background-color: rgba(255, 240, 219, 0.15);
-  color: #fff0db;
+  color: #ffffff;
 }
 
 .nav-link.active::after {
@@ -84,7 +84,7 @@ body {
   left: 15px;
   right: 15px;
   height: 2px;
-  background-color: #fff0db;
+  background-color: #ffffff;
 }
 
 .header-actions {
@@ -96,7 +96,7 @@ body {
 .btn-login,
 .btn-registrar {
   padding: 8px 20px;
-  border: 2px solid #fff0db;
+  border: 2px solid #ffffff;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
@@ -106,16 +106,16 @@ body {
 
 .btn-login {
   background-color: transparent;
-  color: #fff0db;
+  color: #ffffff;
 }
 
 .btn-login:hover {
-  background-color: #fff0db;
+  background-color: #ffffff;
   color: #751a24;
 }
 
 .btn-registrar {
-  background-color: #fff0db;
+  background-color: #ffffff;
   color: #751a24;
 }
 
@@ -194,7 +194,7 @@ body {
 }
 
 .destaque-info {
-  background: #fff0db;
+  background: #ffffff;
   padding: 20px;
   border-left: 4px solid #751a24;
   border-radius: 8px;
@@ -250,7 +250,7 @@ body {
 }
 
 .membro-card {
-  background: #fff0db;
+  background: #ffffff;
   padding: 25px;
   border-radius: 12px;
   text-align: center;
@@ -269,7 +269,7 @@ body {
   height: 120px;
   border-radius: 50%;
   background: #751a24;
-  color: #fff0db;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -321,7 +321,7 @@ body {
 }
 
 .tech-item {
-  background: #fff0db;
+  background: #ffffff;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
